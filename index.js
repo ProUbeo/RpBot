@@ -21,7 +21,7 @@
          .setDescription("")
          . setFooter ( "Si vous avez un problème ... index.js ne répond pas" )
          . addField ( "liste",
-           "Ça arrive :)" )
+           "```pour faire apparaître des armes :\ntest :)```" )
      
          message.channel.send({embed});
      }
