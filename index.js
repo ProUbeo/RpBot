@@ -25,7 +25,7 @@
      
          message.channel.send({embed});
      }
-     if(message.content === "rp!katana" ){ 
+     if(message.content === "rp!test" ){ 
  
      const embed = new Discord.RichEmbed()
      .setTitle("Apparition")
@@ -38,9 +38,9 @@
   
       message.channel.send({embed});
  }
-  if(message.content.startsWith("rp!nature")){
-    message.channel.send(`**${message.author.username}** lance la capacité orbe de la nature!\nDégâts : 25`,{
-    file: "https://i.pinimg.com/originals/69/eb/43/69eb43047ff86ade658b2c677c0567ee.gif"
+  if(message.content.startsWith("rp!katana")){
+    message.channel.send(`**${message.author.username}** fait apparaître son Katana !`,{
+    file:"https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg"
 })
 }
 }
