@@ -35,7 +35,7 @@ bot.on('message', message => {
     .setFooter("si vous avez un problème... index.js ne répond pas")
           .addField("g",
       " A fait apparaître son Katana")
-      .setImage("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EGy7pjQwl/multicolor-video-with-text-error-404-not-found_skwt525re_thumbnail-small01.jpg")
+      .setImage("https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg")
   
     message.channel.send({embed});
 }
