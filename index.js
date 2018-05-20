@@ -21,7 +21,7 @@
          .setDescription("")
          . setFooter ( "Si vous avez un problème ... index.js ne répond pas" )
          . addField ( "liste",
-           "```pour faire apparaître des armes :\ntest :)```" )
+           "```pour faire apparaître des armes :\nrp!katana pour faire apparaître un katana (la logique)\nrp!hache pour faire apparaître attention suspens... une hache (bon ok j'arrète)```" )
      
          message.channel.send({embed});
      }
