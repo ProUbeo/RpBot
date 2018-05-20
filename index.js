@@ -19,8 +19,8 @@ bot.on('message', message => {
         .setTitle("commandes Disponible")
         .setColor(0xD4FE00)
         .setDescription("")
-        .setFooter("Si vous avez un probleme... index.js ne répond pas")
-        .addField("Commandes du bot",
+        . setFooter ( "Si vous avez un problème ... index.js ne répond pas" )
+        . addField ( "",
           "Ça arrive bientôt :)")
     
         message.channel.send({embed});
