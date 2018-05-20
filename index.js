@@ -20,8 +20,8 @@ bot.on('message', message => {
         .setColor(0xD4FE00)
         .setDescription("")
         . setFooter ( "Si vous avez un problème ... index.js ne répond pas" )
-        . addField ( "",
-          "Ça arrive bientôt :)")
+        . addField ( "liste",
+          "Ça arrive :)" )
     
         message.channel.send({embed});
     }
