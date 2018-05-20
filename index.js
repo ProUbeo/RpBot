@@ -24,20 +24,10 @@ bot.on('message', message => {
           "Ça arrive :)" )
     
         message.channel.send({embed});
-    }
-    if(message.content === "rp!katana" ){ 
-
-    const embed = new Discord.RichEmbed()
-    .setTitle("Apparition")
-    .setAuthor("RpBot")
-    .setColor(0xD4FE00)
-    .setDescription("Arme")
-    .setFooter("si vous avez un problème... index.js ne répond pas")
-          .addField("génération du Katana",
-      "**${message.author.username}** A fait apparaître son Katana")
-      .setImage("https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg")
-  
-    message.channel.send({embed});
+ }
+if(message.content.startsWith("rp!Katana"){
+    message.channel.send("**${message.author.username}** fait apparaître son katana !",{
+    file: "https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg"
+})
 }
 }
-)
