@@ -43,5 +43,10 @@
     file:"https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg"
 })
 }
+if(message.content.startsWith("rp!hache")){
+    message.channel.send(`**${message.author.username}** fait apparaître sa Hache !`,{
+    file:"https://i.pinimg.com/originals/71/02/0b/71020b0b0f15002ef877deb3f716dad6.jpg"
+})
+}
 }
 )
