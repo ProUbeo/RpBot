@@ -38,5 +38,9 @@
   
       message.channel.send({embed});
  }
- }
- )
+  if(message.content.startsWith("m!nature")){
+    message.channel.send(`**${message.author.username}** lance la capacité orbe de la nature!\nDégâts : 25`,{
+    file: "https://i.pinimg.com/originals/69/eb/43/69eb43047ff86ade658b2c677c0567ee.gif"
+})
+}
+}
