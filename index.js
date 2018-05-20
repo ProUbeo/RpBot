@@ -33,8 +33,8 @@ bot.on('message', message => {
     .setColor(0xD4FE00)
     .setDescription("Arme")
     .setFooter("si vous avez un problème... index.js ne répond pas")
-          .addField("g",
-      " A fait apparaître son Katana")
+          .addField("génération du Katana",
+      "**${message.author.username}** A fait apparaître son Katana")
       .setImage("https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg")
   
     message.channel.send({embed});
