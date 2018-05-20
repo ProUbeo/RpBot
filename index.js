@@ -25,16 +25,16 @@ bot.on('message', message => {
     
         message.channel.send({embed});
     }
-    if(message.content === "rp!test" ){ 
+    if(message.content === "rp!katana" ){ 
 
     const embed = new Discord.RichEmbed()
-    .setTitle("Test d'image")
+    .setTitle("Apparition")
     .setAuthor("RpBot")
     .setColor(0xD4FE00)
-    .setDescription("test")
+    .setDescription("Arme")
     .setFooter("si vous avez un problème... index.js ne répond pas")
-          .addField("test du lien",
-      "donnée test")
+          .addField("g",
+      " A fait apparaître son Katana")
       .setImage("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EGy7pjQwl/multicolor-video-with-text-error-404-not-found_skwt525re_thumbnail-small01.jpg")
   
     message.channel.send({embed});
