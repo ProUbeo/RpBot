@@ -48,5 +48,10 @@ if(message.content.startsWith("rp!hache")){
     file:"https://i.pinimg.com/originals/71/02/0b/71020b0b0f15002ef877deb3f716dad6.jpg"
 })
 }
+if(message.content.startsWith("rp!arc")){
+    message.channel.send(`**${message.author.username}** fait apparaître son arc !`,{
+    file:"http://img4.hostingpics.net/pics/484588arc.png"
+})
+}
 }
 )
