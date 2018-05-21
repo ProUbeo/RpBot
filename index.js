@@ -5,7 +5,7 @@
  
  bot.on('ready', function() {
      bot.user.setUsername("RpBot")
-     bot.user.setPresence({ game: { name: 'Griller des mages con'}, status: 'invisible'}) //en ligne;
+     bot.user.setPresence({ game: { name: 'Griller des mages con'}, status: 'online'}) //en ligne;
      console.log("Connected")
  });
  
