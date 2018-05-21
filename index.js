@@ -69,7 +69,7 @@ if(message.content.startsWith("rp!couteau")){
 })
 }
 if(message.content.startsWith("rp!pistolet")){
-    message.channel.send(`**${message.author.username}** fait apparaître son Couteau (poignard) !`,{
+    message.channel.send(`**${message.author.username}** fait apparaître son Pistolet (x2) !`,{
     file:"https://i.skyrock.net/1287/90701287/pics/3220760413_1_16_rngUeCl8.jpg"
 })
 }
