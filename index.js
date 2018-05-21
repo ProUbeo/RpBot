@@ -21,7 +21,7 @@
          .setDescription("")
          . setFooter ( "Si vous avez un problème ... index.js ne répond pas" )
          . addField ( "liste",
-           "```help1.exe                                              _ ☐ X\nfaire apparaître des armes :\nrp!katana pour faire apparaître un katana (la logique)\nrp!hache pour faire apparaître attention suspens... une hache (bon ok j'arrète)\nrp!arc pour faire apparaître une canne a pêche... et non c'est pour un arc XD\nrp!faux poir faire apparaître une Faux et pas de Norman, merci :3```" )
+           "```help1.exe                                              _ ☐ X\nfaire apparaître des armes :\nrp!katana pour faire apparaître un katana (la logique)\nrp!hache pour faire apparaître attention suspens... une hache (bon ok j'arrète)\nrp!arc pour faire apparaître une canne a pêche... et non c'est pour un arc XD\nrp!faux pour faire apparaître une Faux et pas de Norman, merci :3\nrp!sceptre pour faire apparaître un sceptre de mage :3```" )
     
          message.channel.send({embed});
      }
@@ -56,6 +56,11 @@ if(message.content.startsWith("rp!arc")){
 if(message.content.startsWith("rp!faux")){
     message.channel.send(`**${message.author.username}** fait apparaître sa Faux !`,{
     file:"https://cdn.discordapp.com/attachments/448046019301736452/448060981978071040/th.jpg"
+})
+}
+if(message.content.startsWith("rp!sceptre")){
+    message.channel.send(`**${message.author.username}** fait apparaître son Sceptre !`,{
+    file:"https://i.skyrock.net/4010/71994010/pics/3154696378_1_6_CYLmvdbs.png"
 })
 }
 }
