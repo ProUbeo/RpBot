@@ -45,7 +45,7 @@
      .setColor(0xD4FE00)
      .setDescription("Lancement")
      .setFooter("si vous avez un problème... index.js ne répond pas")
-          .addField("<@323807479651631104>",
+          .addField("@Monkestra_Lemres#4341",
       "Votre demande vas être traiter :)")
  
      message.channel.send({embed});
