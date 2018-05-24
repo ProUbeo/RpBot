@@ -83,5 +83,10 @@ if(message.content.startsWith("rp!sword")){
     file:"https://cdn.discordapp.com/attachments/448128099247456256/448131072887357440/unknown.png"
 })
 }
+if(message.content.startsWith("rp!dynamite")){
+    message.channel.send(`**${message.author.username}** fait apparaître sa dynamite!`,{
+    file:"https://cdn.discordapp.com/attachments/449255475389661204/449255515596259330/telechargement_2.jpeg"
+})
+}
 }
 )
