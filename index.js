@@ -38,6 +38,18 @@
   
       message.channel.send({embed});
  }
+  if(message.content === "rp!call" ){ 
+ 
+     const embed = new Discord.RichEmbed()
+     .setTitle("Appel D'aide")
+      .setColor(0xD4FE00)
+      .setDescription("Chargement en cours...")
+      .setFooter("si vous avez un problème... index.js ne répond pas")
+           .addField("appel envoyé a <@323807479651631104>, mon créateur",
+       "Votre requête a bien été envoyé ! Lemres vas vous répondre dés qu'il pourras !")
+  
+      message.channel.send({embed});
+ }
   if(message.content.startsWith("rp!katana")){
     message.channel.send(`**${message.author.username}** fait apparaître son Katana !`,{
     file:"https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg"
