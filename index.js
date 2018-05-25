@@ -45,8 +45,7 @@
       .setColor(0xD4FE00)
       .setDescription("Chargement en cours...")
       .setFooter("si vous avez un problème... index.js ne répond pas")
-           .addField("appel envoyé a <@323807479651631104>, mon créateur",
-       "Votre requête a bien été envoyé ! Lemres vas vous répondre dés qu'il pourras !")
+           .addField("appel envoyé a <@323807479651631104>, mon créateur")
   
       message.channel.send({embed});
  }
