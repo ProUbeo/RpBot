@@ -48,7 +48,7 @@ if (randnum == 2){
     message.channel.send(`Bienvenue... index.js ne répond pas !\nraison : j'ai la flemme de te répondre :3`);
 }
 if (randnum == 3){
-    message.channel.send(`Bienvenue je ne sais qui, Bienvenue dans le rp {serveur.name} ehh... non c'est pas ça... `);
+    message.channel.send(`Bienvenue je ne sais qui, Bienvenue dans le rp **{server}** ehh... non c'est pas ça... `);
 }}
   if(message.content.startsWith("rp!katana")){
     message.channel.send(`**${message.author.username}** fait apparaître son Katana !`,{
