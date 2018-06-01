@@ -1,7 +1,8 @@
- const Discord = require('discord.js');
+const Discord = require('discord.js');
  const bot = new Discord.Client();
  
  var prefix = ("RpBot!")
+ var randnum = 0;
  
  bot.on('ready', function() {
      bot.user.setUsername("RpBot")
@@ -38,6 +39,17 @@
   
       message.channel.send({embed});
  }
+if (message.content === "texte"){
+    random();
+    if (randnum == 1){
+     message.channel.send(`PPAP`);
+}
+if (randnum == 2){
+    message.channel.send(`HIIIIIIII`);
+}
+if (randnum == 3){
+    message.channel.send(`ALLER`);
+}}
   if(message.content.startsWith("rp!katana")){
     message.channel.send(`**${message.author.username}** fait apparaître son Katana !`,{
     file:"https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg"
@@ -99,3 +111,8 @@ if(message.content.startsWith("rp!baton")){
 }
 }
 )
+function random(min, max) {
+    min = Math.ceil(0)// 0 est impossible a avoir
+    max = Math.floor(3)
+    randnum = Math.floor(Math.random() * (max - min +1) + min);
+ }
