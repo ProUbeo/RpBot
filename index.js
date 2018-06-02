@@ -26,16 +26,14 @@ const Discord = require('discord.js');
     
          message.channel.send({embed});
      }
-     if(message.content === "rp!test" ){ 
+     if(message.content === "rp!news" ){ 
  
      const embed = new Discord.RichEmbed()
-     .setTitle("Apparition")
-     .setAuthor("RpBot")
+     .setTitle("Dernières News répertoriés :")
       .setColor(0xD4FE00)
-      .setDescription("Arme")
+      .setDescription("Liste")
       .setFooter("si vous avez un problème... index.js ne répond pas")
-           .addField("génération du Katana",
-       " A fait apparaître son Katana")
+           .addField("```02/06/2018 13:53\nMessage du développeur :\n je vous prépare une surprise mais ça sera pas tout de suite car c'est long a faire :3```")
   
       message.channel.send({embed});
  }
