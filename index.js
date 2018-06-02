@@ -33,7 +33,7 @@ const Discord = require('discord.js');
       .setColor(0xD4FE00)
       .setDescription("Liste")
       .setFooter("si vous avez un problème... index.js ne répond pas")
-           .addField("",
+           .addField("```...```",
                      "```02/06/2018 13:53\nMessage du développeur :\n je vous prépare une surprise mais ça sera pas tout de suite car c'est long a faire :3```")
   
       message.channel.send({embed});
