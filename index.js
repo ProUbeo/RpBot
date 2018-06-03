@@ -26,7 +26,7 @@ const Discord = require('discord.js');
          . addField ( "Transition",
          "```help2.exe    _ ☐ X\nAutres commandes :\nrp!call pour que je puisse appeller mon maitre ! (commande a utiliser avec précaution)\nrp!news pour avoir les news du bot (en gros moi :3)```")
          . addField ( "Transition",
-         "```help3.exe    _ ☐ X\nCommandes 100% Rp\nrp!sleep pour dire a tout le monde que tu dort```")
+         "```help3.exe    _ ☐ X\nCommandes 100% Rp\nrp!sleep pour dire a tout le monde que tu dort\nrp!eat pour dire que tu te régale !```")
          
          message.channel.send({embed});
      }
@@ -115,6 +115,11 @@ if(message.content.startsWith("rp!baton")){
   if(message.content.startsWith("rp!sleep")){
     message.channel.send(`**${message.author.username}** fait un petit somme !`,{
     file:"http://mangasetplus.m.a.pic.centerblog.net/16dca05f.jpg"
+})
+}
+   if(message.content.startsWith("rp!eat")){
+    message.channel.send(`**${message.author.username}** Mange !`,{
+    file:"https://data.photofunky.net/output/image/6/8/0/3/680323/photofunky.gif"
 })
 }
 }
