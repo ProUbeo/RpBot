@@ -123,22 +123,22 @@ if(message.content.startsWith("rp!baton")){
 })
 }
 if(message.content === "rp!dark"){ 
-    message.channel.send("Execution", {
+    message.channel.send("", {
     file: "https://cdn.discordapp.com/attachments/448162387434930176/452858712189829120/giphy.gif"
 }) 
 }
 if(message.content === "rp!fury"){
-    message.channel.send("Execution", {
+    message.channel.send("", {
     file: "https://cdn.discordapp.com/attachments/452458948700667905/452819436714328065/accelerator.gif"
 }) 
 }
-if(message.content === "rpthedeath"){
-    message.channel.send("Execution", {
+if(message.content === "rp!thedeath"){
+    message.channel.send("", {
     file: "https://cdn.discordapp.com/attachments/452458948700667905/452816083653754880/mort.jpg"
 }) 
 }
 if(message.content === "rp!shinji"){
-    message.channel.send("Execution", {
+    message.channel.send("", {
     file: "https://cdn.discordapp.com/attachments/443770152777941012/452860496203218944/Ame_Fire_Rogue.jpg"
 }) 
 }
