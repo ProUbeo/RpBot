@@ -122,26 +122,6 @@ if(message.content.startsWith("rp!baton")){
     file:"https://data.photofunky.net/output/image/6/8/0/3/680323/photofunky.gif"
 })
 }
-  if(message.content.startsWith("rp!dark")){
-    message.channel.send(`Execution`,{
-    file:"https://cdn.discordapp.com/attachments/448162387434930176/452858712189829120/giphy.gif"
-})
-}
-  if(message.content.startsWith("rp!fury")){
-    message.channel.send(`Execution`,{
-    file:"https://cdn.discordapp.com/attachments/452458948700667905/452819436714328065/accelerator.gif"
-})
-}
-  if(message.content.startsWith("rp!thedeath")){
-    message.channel.send(`Execution`,{
-    file:"https://cdn.discordapp.com/attachments/452458948700667905/452816083653754880/mort.jpg"
-})
-}
-  if(message.content.startsWith("rp!shinji")){
-    message.channel.send(`Execution`,{
-    file:"https://cdn.discordapp.com/attachments/443770152777941012/452860496203218944/Ame_Fire_Rogue.jpg"
-})
-}
 }
 )
 
