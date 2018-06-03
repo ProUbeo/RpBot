@@ -137,6 +137,11 @@ if(message.content === "rp!shinji"){
     file: "https://cdn.discordapp.com/attachments/443770152777941012/452860496203218944/Ame_Fire_Rogue.jpg"
 }) 
 }
+if(message.content === "rp!dark"){ 
+    message.channel.send("Execution", {
+    file: "https://www.youtube.com/watch?v=kGK0rv_SXNk"
+}) 
+}
 }
 )
 
