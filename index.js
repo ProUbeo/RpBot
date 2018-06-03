@@ -27,6 +27,8 @@ const Discord = require('discord.js');
          "```help2.exe    _ ☐ X\nAutres commandes :\nrp!call pour que je puisse appeller mon maitre ! (commande a utiliser avec précaution)\nrp!news pour avoir les news du bot (en gros moi :3)```")
          . addField ( "transition",
          "```help3.exe    _ ☐ X\nCommandes 100% Rp\nrp!sleep pour dire a tout le monde que tu dort\nrp!eat pour dire que tu te régale !```")
+         . addField ( "transition",
+         "```help4.exe.   _ ☐ X\nChangement d'identité :\nrp!dark\nrp!thedeath\nrp!fury\nrp!shinji```")
          
          message.channel.send({embed});
      }
