@@ -42,6 +42,10 @@ const Discord = require('discord.js');
   
       message.channel.send({embed});
  }
+ if(message.content.startsWith("rp!call")){
+    message.channel.send(`**${message.author.username}**, vous appelez <@323807479651631104> avec succes !`,{
+})
+}
 if (message.content === "Bienvenue"){
     random();
     if (randnum == 1){
@@ -101,10 +105,6 @@ if(message.content.startsWith("rp!sword")){
 if(message.content.startsWith("rp!dynamite")){
     message.channel.send(`**${message.author.username}** fait apparaître sa dynamite!`,{
     file:"https://cdn.discordapp.com/attachments/449255475389661204/449255515596259330/telechargement_2.jpeg"
-})
-}
-if(message.content.startsWith("rp!call")){
-    message.channel.send(`**${message.author.username}**, vous appelez <@323807479651631104> avec succes !`,{
 })
 }
 if(message.content.startsWith("rp!baton")){
