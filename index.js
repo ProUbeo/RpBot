@@ -139,7 +139,7 @@ if(message.content === "rp!shinji"){
 }
 if(message.content === "rp!dark"){ 
     message.channel.send("Execution", {
-    file: "https://www.youtube.com/watch?v=kGK0rv_SXNk"
+    file: "https://cdn.discordapp.com/attachments/448162387434930176/452872167713931271/transfo.gif"
 }) 
 }
 }
