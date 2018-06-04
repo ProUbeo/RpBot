@@ -26,7 +26,7 @@ const Discord = require('discord.js');
          . addField ( "Transition",
          "```help2.exe    _ ☐ X\nAutres commandes :\nrp!call pour que je puisse appeller mon maitre ! (commande a utiliser avec précaution)\nrp!news pour avoir les news du bot (en gros moi :3)```")
          . addField ( "transition",
-         "```help3.exe    _ ☐ X\nCommandes 100% Rp\nrp!sleep pour dire a tout le monde que tu dort\nrp!eat pour dire que tu te régale !```")
+         "```help3.exe    _ ☐ X\nCommandes 100% Rp\nrp!sleep pour dire a tout le monde que tu dort\nrp!eat pour dire que tu te régale !\nrp!debout pour dire que on se lève (avec un peu de flemme)```")
          . addField ( "transition",
          "```help4.exe.   _ ☐ X\nChangement d'identité :\nrp!dark\nrp!thedeath\nrp!fury\nrp!shinji```")
          
@@ -144,6 +144,11 @@ if(message.content === "rp!dark"){
     file: "https://cdn.discordapp.com/attachments/448162387434930176/452872167713931271/transfo.gif"
 }) 
 }
+if(message.content.startsWith("rp!debout")){
+    message.channel.send(`**${message.author.username}** Se lève !`,{
+    file:"https://data.photofunky.net/output/image/a/e/e/1/aee1cc/photofunky.gif"
+})
+} 
 }
 )
 
