@@ -196,7 +196,6 @@ if (message.content.startsWith("rp!annonce")){
     message.channel.send(embed)
     .then(function (message) {
 message.react("✔️")    
-    }).catch(function() {
     });
 }else{
     return message.reply("Une Erreur à été détécté !")
