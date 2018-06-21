@@ -24,34 +24,6 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
 
  bot.on('message', message => {
 
-    if (message.content === "<@447465854742036491>"){
-    var embed = new Discord.RichEmbed()
-    .setDescription("Informations sur Le Serveur Discord ^^")
-    .addField("Nom du Serveur Discord :", message.guild.name)
-    .addField("Date de création du serveur Discord :", message.guild.createdAt)
-    .addField("Nombres de personnes sur le Discord :", message.guild.memberCount)
-    .setColor(0xD4FE00)
-    message.channel.sendEmbed(embed)
-    }
-    if (message.content.startswich("rp!sondage")){
-        let args = message.content.split(" ").slice(1)
-        let thingToEcho = args.join(" ")
-        var embed = new Discord.RichEmbed()
-        .setDescription(`Sondage Par **${message.author.username}**`)
-        .addField(thingToEcho, "Vous pouvez répondre par les réactions (disponible en dessous de ce message)")
-        .setColor(0xD4FE00)
-        .setTimestamp()
-        message.channel.sendEmbed(embed)
-        .then(function (message) {
-    message.react(":white_check_mark")
-    message.react(":x:")    
-        }).catch(function() {
-        });
-    }else{
-        return message.reply("Une erreur a été détécté !")
-    }
-        
-
      if(message.content === "rp!help"){
  
          const embed = new Discord.RichEmbed()
@@ -187,6 +159,32 @@ if(message.content.startsWith("rp!debout")){
     file:"https://data.photofunky.net/output/image/a/e/e/1/aee1cc/photofunky.gif"
 })
 } 
+if (message.content === "<@447465854742036491>"){
+    var embed = new Discord.RichEmbed()
+    .setDescription("Informations sur Le Serveur Discord ^^")
+    .addField("Nom du Serveur Discord :", message.guild.name)
+    .addField("Date de création du serveur Discord :", message.guild.createdAt)
+    .addField("Nombres de personnes sur le Discord :", message.guild.memberCount)
+    .setColor(0xD4FE00)
+    message.channel.sendEmbed(embed)
+    }
+    if (message.content.startswich("rp!sondage")){
+        let args = message.content.split(" ").slice(1)
+        let thingToEcho = args.join(" ")
+        var embed = new Discord.RichEmbed()
+        .setDescription(`Sondage Par **${message.author.username}**`)
+        .addField(thingToEcho, "Vous pouvez répondre par les réactions (disponible en dessous de ce message)")
+        .setColor(0xD4FE00)
+        .setTimestamp()
+        message.channel.sendEmbed(embed)
+        .then(function (message) {
+    message.react(":white_check_mark")
+    message.react(":x:")    
+        }).catch(function() {
+        });
+    }else{
+        return message.reply("Une erreur a été détécté !")
+}
 }
 )
 
