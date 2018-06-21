@@ -194,9 +194,6 @@ if (message.content.startsWith("rp!annonce")){
     .setColor(0xD4FE00)
     .setFooter("si vous avez un problème... index.js ne répond pas")
     message.channel.send(embed)
-    .then(function (message) {
-message.react("✔️")    
-    });
 }else{
     return message.reply("Une Erreur à été détécté !")
 }
