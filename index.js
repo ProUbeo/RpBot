@@ -166,17 +166,17 @@ if (message.content === "<@447465854742036491>"){
     .addField("Date de création du serveur Discord :", message.guild.createdAt)
     .addField("Nombres de personnes sur le Discord :", message.guild.memberCount)
     .setColor(0xD4FE00)
+    .setFooter("si vous avez un problème... index.js ne répond pas")
     message.channel.sendEmbed(embed)
     }
     if (message.content.startsWith("rp!sondage")){
-        if(message.author.id == "418453389576503297","323807479651631104"){
         let args = message.content.split(" ").slice(1)
         let thingToEcho = args.join(" ")
         var embed = new Discord.RichEmbed()
         .setDescription(`Sondage Par **${message.author.username}**`)
         .addField(thingToEcho, "Vous pouvez répondre par les réactions (disponible en dessous de ce message)")
         .setColor(0xD4FE00)
-        .setTimestamp()
+        .setFooter("si vous avez un problème... index.js ne répond pas")
         message.channel.sendEmbed(embed)
         .then(function (message) {
     message.react("❌")
@@ -186,10 +186,26 @@ if (message.content === "<@447465854742036491>"){
     }else{
         return message.reply("Je ne vous ai pas ma base de donnée !")
 }
+if (message.content.startsWith("rp!annonce")){
+    if(message.author.id == "418453389576503297", "323807479651631104"){
+    let args = message.content.split(" ").slice(1)
+    let thingToEcho = args.join(" ")
+    var embed = new Discord.RichEmbed()
+    .setDescription(`**${message.author.username}** Demande votre attention !`)
+    .addField("[Important, Annonce]", thingToEcho)
+    .setColor(0xD4FE00)
+    .setFooter("si vous avez un problème... index.js ne répond pas")
+    message.guild.channels.find("name", "annonce-du-rp").sendEmbed(embed)
+    .then(function (message) {
+message.react("✔️")    
+    }).catch(function() {
+    });
+}else{
+    return message.reply("Une Erreur à été détécté !")
+}
 }
 }
 )
-
 function random(min, max) {
     min = Math.ceil(1)
     max = Math.floor(3)
