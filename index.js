@@ -177,7 +177,7 @@ if (message.content === "<@447465854742036491>"){
         .addField(thingToEcho, "Vous pouvez répondre par les réactions (disponible en dessous de ce message)")
         .setColor(0xD4FE00)
         .setFooter("si vous avez un problème... index.js ne répond pas")
-        message.channel.sendEmbed(embed)
+        message.channel.send(embed)
         .then(function (message) {
     message.react("❌")
     message.react("✔")    
