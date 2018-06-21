@@ -168,7 +168,7 @@ if (message.content === "<@447465854742036491>"){
     .setColor(0xD4FE00)
     message.channel.sendEmbed(embed)
     }
-    if (message.content.startswich("rp!sondage")){
+    if (message.content.startsWith("rp!sondage")){
         if(message.author.id == "418453389576503297"){
         let args = message.content.split(" ").slice(1)
         let thingToEcho = args.join(" ")
