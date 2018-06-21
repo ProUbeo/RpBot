@@ -179,8 +179,8 @@ if (message.content === "<@447465854742036491>"){
         .setTimestamp()
         message.channel.sendEmbed(embed)
         .then(function (message) {
-    message.react(":white_check_mark")
-    message.react(":x:")    
+    message.react("❌")
+    message.react("✔")    
         }).catch(function() {
         });
     }else{
