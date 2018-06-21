@@ -169,6 +169,7 @@ if (message.content === "<@447465854742036491>"){
     message.channel.sendEmbed(embed)
     }
     if (message.content.startswich("rp!sondage")){
+        if(message.author.id == "418453389576503297"){
         let args = message.content.split(" ").slice(1)
         let thingToEcho = args.join(" ")
         var embed = new Discord.RichEmbed()
@@ -183,7 +184,8 @@ if (message.content === "<@447465854742036491>"){
         }).catch(function() {
         });
     }else{
-        return message.reply("Une erreur a été détécté !")
+        return message.reply("Je ne vous ai pas ma base de donnée !")
+}
 }
 }
 )
