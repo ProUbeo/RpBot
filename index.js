@@ -195,7 +195,7 @@ if (message.content.startsWith("rp!annonce")){
     .setFooter("si vous avez un problème... index.js ne répond pas")
     message.channel.send(embed)
     .then(function (message) {
-message.react("✔️")    
+message.react(":heavy_check_mark:️")    
     })
 }else{
     return message.reply("Une Erreur à été détécté !")
