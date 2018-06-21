@@ -193,7 +193,7 @@ if (message.content.startsWith("rp!annonce")){
     .addField("[Important, Annonce]", thingToEcho)
     .setColor(0xD4FE00)
     .setFooter("si vous avez un problème... index.js ne répond pas")
-    message.guild.channels.find("<#445976354119483392>").sendEmbed(embed)
+    message.channel.sendEmbed(embed)
     .then(function (message) {
 message.react("✔️")    
     }).catch(function() {
