@@ -185,7 +185,7 @@ if (message.content === "<@447465854742036491>"){
         });
     }
 if (message.content.startsWith("rp!annonce")){
-    if(message.author.id == "418453389576503297", "323807479651631104"){
+    if("418453389576503297 323807479651631104".includes(message.author.id)){
     let args = message.content.split(" ").slice(1)
     let thingToEcho = args.join(" ")
     var embed = new Discord.RichEmbed()
@@ -202,6 +202,8 @@ message.react("✔️")
     return message.reply("Une Erreur à été détécté !")
 }
 }
+
+
 }
 )
 function random(min, max) {
