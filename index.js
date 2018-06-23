@@ -25,8 +25,8 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
 
  bot.on('message', message => {
 
-    if(message.content == "rp!guess-number start"){
-        message.reply("partie lancé")
+    if(message.content == "rp!battle start"){
+        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez")
         battle_ennemy = true;
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
         console.log(number_random);
@@ -34,23 +34,23 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
     if(battle_ennemy && message.content !=null){
         if(Number.isInteger(parseInt(message.content))){
             if(message.content > number_random){
-                message.reply("plus petit")
+                message.reply("Ses pv sont plus bas !")
             }
             else if(message.content < number_random){
-                message.reply("plus grand")
+                message.reply("Ses pv sont plus haut !")
             }
             else{
-                message.reply('a gagné la partie');
+                message.reply(`WAA ! Vous l'avez tué !`);
                 battle_ennemy = false
             }
         }
     }
-    if(message.content == "rp!guess-number stop"){
+    if(message.content == "rp!battle stop"){
         if(battle_ennemy == true){
-            message.reply("party stoppé")
+            message.reply("**run away**")
             battle_ennemy = false;
     }else{
-        message.reply("aucune partie en cours")
+        message.reply("Vous n'avez pas trouvé de monstre !")
     }
     }
 
