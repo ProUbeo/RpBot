@@ -3,6 +3,7 @@ const Discord = require('discord.js');
  
  var prefix = ("RpBot!")
  var randnum = 0;
+ var battle_ennemy = false;
  
  bot.on('ready', function() {
      bot.user.setUsername("RpBot")
@@ -24,6 +25,34 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
 
  bot.on('message', message => {
 
+    if(message.content == "rp!battle start"){
+        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez ")
+        party_launch = true;
+        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
+        console.log(number_random);
+    }
+    if(party_launch && message.content !=null){
+        if(Number.isInteger(parseInt(message.content))){
+            if(message.content > number_random){
+                message.reply("Ses pv sont plus bas !")
+            }
+            else if(message.content < number_random){
+                message.reply("Ses pv sont plus haut !")
+            }
+            else{
+                message.reply("WAA ! Vous l'avez tué !");
+                party_launch = false
+            }
+        }
+    }
+    if(message.content == "rp!battle stop"){
+        if(party_launch == true){
+            message.reply("*run away*")
+            party_launch = false;
+    }else{
+        message.reply("Vous n'avez pas trouvé de monstre !")
+    }
+    }
      if(message.content === "rp!help"){
  
          const embed = new Discord.RichEmbed()
