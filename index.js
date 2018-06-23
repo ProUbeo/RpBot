@@ -27,7 +27,7 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
 
     if(message.content == "rp!battle start"){
         message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez ")
-        party_launch = true;
+        battle_ennemy = true;
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
         console.log(number_random);
     }
@@ -41,14 +41,14 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
             }
             else{
                 message.reply("WAA ! Vous l'avez tué !");
-                party_launch = false
+                battle_ennemy = false
             }
         }
     }
     if(message.content == "rp!battle stop"){
-        if(party_launch == true){
+        if(battle_ennemy == true){
             message.reply("*run away*")
-            party_launch = false;
+            battle_ennemy = false;
     }else{
         message.reply("Vous n'avez pas trouvé de monstre !")
     }
