@@ -48,11 +48,11 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
     if(message.content == "rp!battle stop"){
         if(battle_ennemy == true){
             message.reply("*run away*")
-            battle_ennemy = false;
+            battle_ennemy = false;}
     }else{
         message.reply("Vous n'avez pas trouvé de monstre !")
     }
-    }
+
      if(message.content === "rp!help"){
  
          const embed = new Discord.RichEmbed()
