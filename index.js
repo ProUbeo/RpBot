@@ -24,35 +24,29 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
  
 
  bot.on('message', message => {
-
-    if(message.content == "rp!battle start"){
-        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez ")
-        battle_ennemy = true;
-        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
-        console.log(number_random);
-    }
     if(party_launch && message.content !=null){
         if(Number.isInteger(parseInt(message.content))){
             if(message.content > number_random){
-                message.reply("Ses pv sont plus bas !")
+                message.reply("plus petit")
             }
             else if(message.content < number_random){
-                message.reply("Ses pv sont plus haut !")
+                message.reply("plus grand")
             }
             else{
-                message.reply("WAA ! Vous l'avez tué !");
-                battle_ennemy = false
+                message.reply('a gagné la partie');
+                party_launch = false
             }
         }
     }
-    if(message.content == "rp!battle stop"){
-        if(battle_ennemy == true){
-            message.reply("*run away*")
-            battle_ennemy = false;}
+    if(message.content == "guess-number stop"){
+        if(party_launch == true){
+            message.reply("party stoppé")
+            party_launch = false;
     }else{
-        message.reply("Vous n'avez pas trouvé de monstre !")
+        message.reply("aucune partie en cours")
     }
-
+    }
+    
      if(message.content === "rp!help"){
  
          const embed = new Discord.RichEmbed()
