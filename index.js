@@ -24,29 +24,29 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
  
 
  bot.on('message', message => {
-    if(party_launch && message.content !=null){
+    if(battle_ennemy && message.content !=null){
         if(Number.isInteger(parseInt(message.content))){
-            if(message.content > number_random){
+            if(message.content > battle_ennemy){
                 message.reply("plus petit")
             }
-            else if(message.content < number_random){
+            else if(message.content < battle_ennemy){
                 message.reply("plus grand")
             }
             else{
                 message.reply('a gagné la partie');
-                party_launch = false
+                battle = false
             }
         }
     }
     if(message.content == "guess-number stop"){
-        if(party_launch == true){
+        if(battle_ennemy == true){
             message.reply("party stoppé")
-            party_launch = false;
+            battle_ennemy = false;
     }else{
         message.reply("aucune partie en cours")
     }
     }
-    
+
      if(message.content === "rp!help"){
  
          const embed = new Discord.RichEmbed()
