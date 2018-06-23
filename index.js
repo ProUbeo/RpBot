@@ -1,242 +1,430 @@
 const Discord = require('discord.js');
- const bot = new Discord.Client();
- 
- var prefix = ("RpBot!")
- var randnum = 0;
- var battle_ennemy = false;
- 
- bot.on('ready', function() {
-     bot.user.setUsername("RpBot")
-     bot.user.setPresence({ game: { name: 'Griller des mages con'}, status: 'dnd'}) //en ligne;
-     console.log("Connected")
- });
- 
- bot.login(process.env.TOKEN);
- 
- bot.on("guildMemberAdd", member => {
-    
-member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la bienvenue ! Je t'offre le pouvoir du rp (et pour l'utiliser... ah ! Tu connais pas ! Fait donc "rp!help" :3`)
-    })
-    bot.on("guildMemberRemove", member => {
-    member.guild.channels.find("name", "entrer").send(`${member} n'a plus le pouvoir du RP`)
-    })
-    
- 
+const bot = new Discord.Client();
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+const client = new Discord.Client();
 
- bot.on('message', message => {
 
-    if(message.content == "rp!battle start"){
-        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver la bonne somme de pv !*\nrp!battle stop si vous voulez partir du combat")
-        battle_ennemy = true;
-        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
-        console.log(number_random);
-    }
-    if(battle_ennemy && message.content !=null){
-        if(Number.isInteger(parseInt(message.content))){
-            if(message.content > number_random){
-                message.reply("Ses pv sont plus bas !")
-            }
-            else if(message.content < number_random){
-                message.reply("Ses pv sont plus haut !")
-            }
-            else{
-                message.reply(`WAA ! Vous l'avez tué !`);
-                battle_ennemy = false
-            }
+const adapter = new FileSync('database.json');
+const db = low(adapter);
+
+db.defaults({ histoires: [],  xp: []}).write()
+
+var number_random = 0;
+var prefix = ("sigbot!")
+var randnum = 0;
+var party_launch = false;
+
+bot.on('ready', function() {
+    bot.user.setUsername("Sigbot")
+    bot.user.setPresence({ game: { name: 'faire des crepes pour niko'}, status: 'online'})
+    console.log("Connected")});
+
+bot.login(process.env.TOKEN);
+
+bot.on('message', message => {
+if(message.content == "guess-number start"){
+    message.reply("partie lancé")
+    party_launch = true;
+    number_random = Math.floor(Math.random() * (5000 - 0) + 0)
+    console.log(number_random);
+}
+if(party_launch && message.content !=null){
+    if(Number.isInteger(parseInt(message.content))){
+        if(message.content > number_random){
+            message.reply("plus petit")
+        }
+        else if(message.content < number_random){
+            message.reply("plus grand")
+        }
+        else{
+            message.reply('a gagné la partie');
+            party_launch = false
         }
     }
-    if(message.content == "rp!battle stop"){
-        if(battle_ennemy == true){
-            message.reply("**run away**")
-            battle_ennemy = false;
-    }else{
-        message.reply("Vous n'avez pas trouvé de monstre !")
-    }
-    }
-
-     if(message.content === "rp!help"){
- 
-         const embed = new Discord.RichEmbed()
-         .setTitle("commandes Disponible")
-         .setColor(0xD4FE00)
-         .setDescription("")
-         . setFooter ( "Si vous avez un problème ... index.js ne répond pas" )
-         . addField ( "liste",
-           "```help1.exe    _ ☐ X\nfaire apparaître des armes :\nrp!katana pour faire apparaître un katana (la logique)\nrp!hache pour faire apparaître attention suspens... une hache (bon ok j'arrète)\nrp!arc pour faire apparaître une canne a pêche... et non c'est pour un arc XD\nrp!faux pour faire apparaître une Faux et pas de Norman, merci :3\nrp!sceptre pour faire apparaître un sceptre de mage :3\nrp!couteau pour faire apparaître un couteau (poignard)\nrp!pistolet pour faire apparaître 2 Pistolet !\nrp!chaîne pour faire apparaître une chaîne en métal magique incassable\nrp!sword pour faire apparaître une épée divine ! (Aucune religion n'est visé)\nrp!dynamite pour faire apparaître des explosifs hyper puissants :3\nrp!baton pour faire apparaitre  un baton en bois... et oui un baton peux faire très mal !```" )
-         . addField ( "Transition",
-         "```help2.exe    _ ☐ X\nAutres commandes :\nrp!call pour que je puisse appeller mon maitre ! (commande a utiliser avec précaution)\nrp!news pour avoir les news du bot (en gros moi :3)```")
-         . addField ( "transition",
-         "```help3.exe    _ ☐ X\nCommandes 100% Rp\nrp!sleep pour dire a tout le monde que tu dort\nrp!eat pour dire que tu te régale !\nrp!debout pour dire que on se réveil (avec un peu de flemme)```")
-         . addField ( "transition",
-         "```help4.exe.   _ ☐ X\nChangement d'identité :\nrp!dark\nrp!thedeath\nrp!fury\nrp!shinji```")
-         
-         message.channel.send({embed});
-     }
-     if(message.content === "rp!news" ){ 
- 
-     const embed = new Discord.RichEmbed()
-     .setTitle("Dernières News répertoriés :")
-      .setColor(0xD4FE00)
-      .setDescription("Liste")
-      .setFooter("si vous avez un problème... index.js ne répond pas")
-           .addField("```...```",
-                     "```03/06/2018 9:15\nMessage du développeur :\nBonjour a tous ! Aujourd'hui j'espère pouvoir commencer mon projet secret mais il faudra beaucoup de temps !```")
-  
-      message.channel.send({embed});
- }
- if(message.content.startsWith("rp!call")){
-    message.channel.send(`**${message.author.username}**, vous appelez <@323807479651631104> avec succes !`,{
-})
 }
-if (message.content === "Bienvenue"){
+if(message.content == "guess-number stop"){
+    if(party_launch == true){
+        message.reply("party stoppé")
+        party_launch = false;
+}else{
+    message.reply("aucune partie en cours")
+}
+}
+    var msgauthor = message.author.id;
+
+    if(message.author.bot)return;
+
+if(!db.get("xp").find({user : msgauthor}).value()){
+    db.get("xp").push({user: msgauthor, xp: 1}).write();
+    }else{
+        var userxpdb = db.get("xp").filter({user: msgauthor}).find('xp').value();
+        console.log(userxpdb);
+        var userxp = Object.values(userxpdb)
+        console.log(userxp)
+        console.log(`nombre d'xp; ${userxp[1]}`)
+        
+        db.get("xp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write();
+
+        if(message.content === "sigbot!xp"){
+            var xp = db.get("xp").filter({user: msgauthor}).find('xp').value()
+            var xpfinal = Object.values(xp);
+            var xp_embed = new Discord.RichEmbed()
+            .setTitle(`Stat des XP de ${message.author.username}`)
+            .setColor('0xcc0099')
+            .setDescription("Affichage des XP")
+            .addField("XP:", `${xpfinal[1]} xp`)
+            .setFooter("enjoy")
+            message.channel.send({embed: xp_embed});
+        }}
+if (message.content === "sigbot!gif"){
+    message.channel.send("on ce met au image et au gif maintenant \n alors preparais vous car on a atein une nouvelle aire de jeux", {
+        file: "https://media.giphy.com/media/LOtqITm3tFmiA/giphy.gif" 
+    });  
+}
+if (message.content === "sigbot!ServeurListe"){
+message.channel.send(bot.guilds.map(r => r.name + ` | **${r.memberCount}** membres`))
+}
+if (message.content === "<@437179201284603904> say yes"){
+    message.channel.send(`yes`);
+}
+if (message.content === "Salut <@437179201284603904>"){
     random();
     if (randnum == 1){
-     message.channel.send(`Bienvenue... ehh... c'est qui qui à rejoin ? Là je suis vraiment perdu...`);
+     message.channel.send(`Selama Pagi ${message.author.username}`);
 }
 if (randnum == 2){
-    message.channel.send(`Bienvenue... index.js ne répond pas !\nraison : j'ai la flemme de te répondre :3`);
+    message.channel.send(`Konichiwa ${message.author.username}`);
 }
 if (randnum == 3){
-    message.channel.send(`Bienvenue je ne sais qui, Bienvenue dans le rp **{server}** ehh... non c'est pas ça... `);
+    message.channel.send(`Hi ${message.author.username}`);
+}
+if (randnum == 4){
+    console.log("UN 4 DANS LE RANDOM")  
+  }
+}
+if (message.content === "Ça va <@437179201284603904> ?"){
+    random();
+    if (randnum == 1){
+        message.channel.send("Ça va :D\nje suis actuellement avec mon dev :3");
+}
+if (randnum == 2){
+    message.channel.send("Pas au top\nmon dev c'est encore planter sur une commande T^T");
+}
+if (randnum == 3){
+    message.channel.send("Pas trop\ntoute ces mise a jour pour les teste me rende un peu fatiguer :/");
+}
+if (randnum == 4){
+    console.log("UN 4 DANS LE RANDOM")  
+  }
+}
+if (message.content === "Merci <@437179201284603904>"){
+    random();
+    if (randnum == 1){
+        message.channel.send("Pas de quoi :D");
+}
+if (randnum == 2){
+    message.channel.send("C'est un honneur");
+}
+if (randnum == 3){
+    message.channel.send("Tout le plaisir et pour moi :3");
+}
+if (randnum == 4){
+    console.log("UN 4 DANS LE RANDOM")  
+  }
+}
+if (message.content === "sigbot!ASDF Movie"){
+    random();
+    if (ASDF == 1){
+        message.channel.send("", {
+            file: "https://media1.tenor.com/images/1e5ea63a7ff58de29efd66799e10bf9a/tenor.gif"
+        })
+}
+if (ASDF == 2){
+    message.channel.send("", {
+        file: "http://garfie.g.a.pic.centerblog.net/b290ac08.gif"
+    })
+}   if (ASDF == 3){
+    message.channel.send("", {
+        file: "http://gifimage.net/wp-content/uploads/2017/09/asdf-movie-gif-7.gif"
+    })
+}   if (ASDF == 4){
+    message.channel.send("", {
+        file: "https://media.giphy.com/media/XKnvIs2ELq7du/giphy.gif"
+    })
+}   if (ASDF == 5){
+    message.channel.send("", {
+        file: "https://media1.tenor.com/images/b5c745a817f0ef09a827bb48d83526be/tenor.gif"
+    })}  
+     if (ASDF == 6){
+    message.channel.send("", {
+        file: "https://vignette.wikia.nocookie.net/asdfmovie/images/7/73/You_Know_Who%27s_Gay%3F.gif/revision/latest?cb=20140307001053"
+    })
+}   if (ASDF == 7){
+    message.channel.send("", {
+        file: "https://i.imgur.com/5cL1Ld6.gif"
+    })
+}   if (ASDF == 8){
+    message.channel.send("", {
+        file: "https://i.pinimg.com/originals/6a/85/dd/6a85dd96d535832c22d5d5d34620615c.gif"
+    })
+}   if (ASDF == 9){
+    message.channel.send("", {
+        file: "https://i.pinimg.com/originals/c8/e2/29/c8e22909763d09c9ff31924ca150ac27.gif"
+    })
+}   if (ASDF == 10){
+    message.channel.send("", {
+        file: "https://i.imgur.com/P7BBAXh.gif"
+    })
 }}
-  if(message.content.startsWith("rp!katana")){
-    message.channel.send(`**${message.author.username}** fait apparaître son Katana !`,{
-    file:"https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg"
+
+if(message.content === "Xarrin!nickel"){ //Xarrin
+        message.channel.send("", {
+        file: "https://media1.tenor.com/images/996279409bcab56de0f7fce3d135a84c/tenor.gif"
+    }) 
+}
+if(message.content === "Xarrin!Invocation:Byakko"){ //Xarrin
+        message.channel.send("", {
+        file: "https://cdn.discordapp.com/attachments/434681503964725248/435060807118749700/SF_Byakko.png"
+    }) 
+}
+if(message.content === "Xarrin!voyeur"){ //Xarrin
+        message.channel.send("", {
+        file: "https://i.pinimg.com/originals/07/d3/ac/07d3ac2dcfc4597b4d0da463fa8b0003.gif"
+    }) 
+}
+if(message.content === "Xarrin!Invocation:Phoenix"){ //Xarrin
+    message.channel.send("", {
+    file: "https://cdn.discordapp.com/attachments/434681503964725248/439059526575063040/m035c10.png"
 })
 }
-if(message.content.startsWith("rp!hache")){
-    message.channel.send(`**${message.author.username}** fait apparaître sa Hache !`,{
-    file:"https://i.pinimg.com/originals/71/02/0b/71020b0b0f15002ef877deb3f716dad6.jpg"
-})
+if(message.content === "Lucas!KC"){ //MME POOF
+        message.channel.send("", {
+        file: "https://31.media.tumblr.com/b4bb500c7d05b0f44e0fd4c35020e3eb/tumblr_inline_ofauryqfpQ1s9x8us_500.gif"
+    }) 
 }
-if(message.content.startsWith("rp!arc")){
-    message.channel.send(`**${message.author.username}** fait apparaître son arc !`,{
-    file:"http://img4.hostingpics.net/pics/484588arc.png"
-})
+if(message.content === "Lucas!FTW"){ //MME POOF
+        message.channel.send("Ma réponse :", {
+        file: "https://i.skyrock.net/0358/84470358/pics/3103693573_1_17_ENJacXlx.gif"
+    }) 
 }
-if(message.content.startsWith("rp!faux")){
-    message.channel.send(`**${message.author.username}** fait apparaître sa Faux !`,{
-    file:"https://cdn.discordapp.com/attachments/448046019301736452/448060981978071040/th.jpg"
-})
+if(message.content === "Lucas!MrPuel"){ //MME POOF
+        message.channel.send("¡Hola!", {
+        file: "https://thumbs.gfycat.com/DentalHealthyAcornweevil-max-1mb.gif"
+    }) 
 }
-if(message.content.startsWith("rp!sceptre")){
-    message.channel.send(`**${message.author.username}** fait apparaître son Sceptre !`,{
-    file:"https://i.skyrock.net/4010/71994010/pics/3154696378_1_6_CYLmvdbs.png"
-})
+if(message.content === "yuki!invocation:Godness"){ //yuki
+        message.channel.send("", {
+        file: "https://cdn.discordapp.com/attachments/434681503964725248/435078318610710539/Goddess.png"
+    }) 
 }
-if(message.content.startsWith("rp!couteau")){
-    message.channel.send(`**${message.author.username}** fait apparaître son Couteau (poignard) !`,{
-    file:"http://img.hebus.com/hebus_2010/06/03/preview/100603180307_19.jpg"
-})
+if(message.content === "Xarrin!gral"){ //xarin
+    message.channel.send("La solitude c'est quand karma il vas sur mer\nLa solitude c'est quand il est bourré dans un verre\n-----\nIl répond au nom de karma On dirais pas forcément mais il en a du karma\nNous on en peut plus de son karma\n-----\n La solitude c'est quand Lucas se prend un vent\nLa solitude c'est au moment ou il se prend du blanc\n-----\n Il répond au nom de lucas\nnon il ne mange pas encore de caca\nCar il était caché dans un placard\n -----\n La solitude c'est quand Xarrin  il mange son pain\nLa solitude c'est comme son fil il est tout fin\n-----\nil répond au nom de Xarrin\nXarrin, il aime allé touché des sein\nXarrin, il aime allé boire du Vin en touchant des popotins");
 }
-if(message.content.startsWith("rp!pistolet")){
-    message.channel.send(`**${message.author.username}** fait apparaître son Pistolet (x2) !`,{
-    file:"https://i.skyrock.net/1287/90701287/pics/3220760413_1_16_rngUeCl8.jpg"
-})
-}
-if(message.content.startsWith("rp!chaîne")){
-    message.channel.send(`**${message.author.username}** fait apparaître sa chaîne !`,{
-    file:"https://cdn.discordapp.com/attachments/448162387434930176/448162555165409281/38_elingue-chaine-d16-lg-2m50.jpg"
-})
-}
-if(message.content.startsWith("rp!sword")){
-    message.channel.send(`**${message.author.username}** fait apparaître son épée !`,{
-    file:"https://cdn.discordapp.com/attachments/448128099247456256/448131072887357440/unknown.png"
-})
-}
-if(message.content.startsWith("rp!dynamite")){
-    message.channel.send(`**${message.author.username}** fait apparaître sa dynamite!`,{
-    file:"https://cdn.discordapp.com/attachments/449255475389661204/449255515596259330/telechargement_2.jpeg"
-})
-}
-if(message.content.startsWith("rp!baton")){
-    message.channel.send(`**${message.author.username}** fait apparaître son bâton !`,{
-    file:"https://cdn.discordapp.com/attachments/446324148730331176/451061465764593674/1527345634780.png"
-})
-}
-  if(message.content.startsWith("rp!sleep")){
-    message.channel.send(`**${message.author.username}** fait un petit somme !`,{
-    file:"http://mangasetplus.m.a.pic.centerblog.net/16dca05f.jpg"
-})
-}
-   if(message.content.startsWith("rp!eat")){
-    message.channel.send(`**${message.author.username}** Mange !`,{
-    file:"https://data.photofunky.net/output/image/6/8/0/3/680323/photofunky.gif"
-})
-}
-if(message.content === "rp!fury"){
-    message.channel.send("Execution", {
-    file: "https://cdn.discordapp.com/attachments/452458948700667905/452819436714328065/accelerator.gif"
+if(message.content === "Xarrin!invocation:spiritwater"){ //xarrin
+    message.channel.send("", {
+    file: "https://cdn.discordapp.com/attachments/434681503964725248/439071187570655232/elemental_01.png"
 }) 
 }
-if(message.content === "rp!thedeath"){
-    message.channel.send("Execution", {
-    file: "https://cdn.discordapp.com/attachments/452458948700667905/452816083653754880/mort.jpg"
+if(message.content === "Xarrin!invocation:spiritearth"){ //xarin
+    message.channel.send("", {
+    file: "https://cdn.discordapp.com/attachments/434681503964725248/439071278964408330/elemental_02.png"
 }) 
 }
-if(message.content === "rp!shinji"){
-    message.channel.send("Execution", {
-    file: "https://cdn.discordapp.com/attachments/443770152777941012/452860496203218944/Ame_Fire_Rogue.jpg"
+if(message.content === "Xarrin!invocation:spiritwind"){ //xarin
+    message.channel.send("", {
+    file: "https://cdn.discordapp.com/attachments/434681503964725248/439071361919352842/elemental_03.png"
 }) 
 }
-if(message.content === "rp!dark"){ 
-    message.channel.send("Execution", {
-    file: "https://cdn.discordapp.com/attachments/448162387434930176/452872167713931271/transfo.gif"
+if(message.content === "Xarrin!invocation:spiritfire"){ //xarin
+    message.channel.send("", {
+    file: "https://cdn.discordapp.com/attachments/434681503964725248/439071422992744448/elemental_04.png"
 }) 
 }
-if(message.content.startsWith("rp!debout")){
-    message.channel.send(`**${message.author.username}** Se réveil !`,{
-    file:"https://data.photofunky.net/output/image/a/e/e/1/aee1cc/photofunky.gif"
+if(message.content === "Xarrin!invocation:Kuro"){ //xarin
+    message.channel.send("", {
+    file: "https://cdn.discordapp.com/attachments/434681503964725248/439133776849797122/d825bf93ca36fdcbf62091b1cc4e6936.png"
 })
-} 
-if (message.content === "<@447465854742036491>"){
-    var embed = new Discord.RichEmbed()
-    .setDescription("Informations sur Le Serveur Discord ^^")
-    .addField("Nom du Serveur Discord :", message.guild.name)
-    .addField("Date de création du serveur Discord :", message.guild.createdAt)
-    .addField("Nombres de personnes sur le Discord :", message.guild.memberCount)
-    .setColor(0xD4FE00)
-    .setFooter("si vous avez un problème... index.js ne répond pas")
-    message.channel.sendEmbed(embed)
-    }
-    if (message.content.startsWith("rp!sondage")){
-        let args = message.content.split(" ").slice(1)
-        let thingToEcho = args.join(" ")
-        var embed = new Discord.RichEmbed()
-        .setDescription(`Sondage Par **${message.author.username}**`)
-        .addField(thingToEcho, "Vous pouvez répondre par les réactions (disponible en dessous de ce message)")
-        .setColor(0xD4FE00)
-        .setFooter("si vous avez un problème... index.js ne répond pas")
-        message.channel.send(embed)
-        .then(function (message) {
-    message.react("❌")
-    message.react("✔")    
-        }).catch(function() {
-        });
-    }
-if (message.content.startsWith("rp!annonce")){
-    if("418453389576503297 323807479651631104 234368202379886593".includes(message.author.id)){
+}
+if(message.content === "Xarrin!ham"){ //Xarrin
+    message.channel.send("", {
+    file: "https://pa1.narvii.com/5994/0561f42850b340049a2ed4628e1ffe358e0dbc96_hq.gif"
+}) 
+}
+if(message.content === "sakamoto!sleep"){ //Sakamoto-san
+    message.channel.send("", {
+    file: "https://media.giphy.com/media/bo0btBvaKDKeY/giphy.gif"
+})
+}
+if(message.content === "sakamoto!play"){ //Sakamoto-san
+    message.channel.send("", {
+    file: "https://78.media.tumblr.com/fba185be4b118ac2bc9f2b913f02bc08/tumblr_n9yumpiQ3y1rmdq5eo4_500.gif"
+})
+}
+if(message.content === "sakamoto!play 2"){ //Sakamoto-san
+    message.channel.send("", {
+    file: "https://media.giphy.com/media/LOtqITm3tFmiA/giphy.gif"
+})
+}
+if(message.content === "sakamoto!play 3"){ //Sakamoto-san
+    message.channel.send("", {
+    file: "https://i.gifer.com/8X8r.gif"
+})
+}
+if(message.content === "sakamoto!xD"){ //Sakamoto-san
+    message.channel.send("", {
+    file: "https://static.fjcdn.com/gifs/Sakamoto+anime+nichijou_80d9f8_4843458.gif"
+})
+}
+if(message.content === "sakamoto!srx"){ //Sakamoto-san
+    message.channel.send("", {
+    file: "https://media.giphy.com/media/RRwhNPJMaymm4/giphy.gif"
+})
+}
+if(message.content === "I like trains"){ 
+    message.channel.send(":D", {
+    file: "https://i.imgur.com/7zkiG.gif"
+})
+}
+if(message.content === "salope Martine"){ 
+    message.channel.send("!!!!!", {
+    file: "https://cdn.discordapp.com/attachments/408257108665040896/444116108203786241/53f39401d3653f077c30c84c4acae7ac.png"
+})
+}
+if(message.content === "Qui est Mokigrokaka ?"){ 
+    message.channel.send("Cette salope ?", {
+    file: "https://cdn.discordapp.com/attachments/292726526657429504/444879710430822400/Mokigrokaka.PNG"
+})
+}
+if (message.content === "<@437179201284603904>" ){ 
+
+    const embed = new Discord.RichEmbed()
+    .setTitle("info sur Sigbot")
+    .setAuthor("Sig", "https://puyonexus.com/forum/download/file.php?avatar=1481_1311799010.png")
+    .setColor(0x0086AE)
+    .setDescription("le bot a éter crée juste pour faire de la programation , mais est partie bien plus loin que sa, il a été crée par @Sig qui c'est fais aidez par  @̶̶ۣۣۜۜ͜ζ͜͡▪) ρнคгยxтαภ  pour les petite erreur :D")
+    .setFooter("pour plus d'info demander au créateur du bot :3", "https://orig00.deviantart.net/24f3/f/2015/305/4/e/sig_as_amitie__by_grimtales1lizzybird-d9f6ez9.png")
+    .setImage("https://78.media.tumblr.com/9a209d8b2d826c25b70b0fa8e29aeb0f/tumblr_n96mqjeBdg1qmbwk5o1_r2_500.png")
+    .setThumbnail("https://puyonexus.com/mediawiki/images/d/d9/Img201007.png")
+    .setTimestamp()
+    .setURL("https://discordapp.com/api/oauth2/authorize?client_id=437179201284603904&permissions=2146958583&scope=bot")
+    .addField("le bot peu reagir avec 3 maniere ",
+      "un texte \n le mentionner \n et utiliser le prefix\nutiliser la commande sigbot!help pour plus d'info")
+    .addField("prefix du bot", "le prefix du bot est sigbot! mais il est possible qu'il change", false);
+  
+    message.channel.send({embed});
+}
+if (message.content === prefix + "help" ){  
+
+    const embed = new Discord.RichEmbed()
+    .setTitle("Commande pour le Sigbot")
+    .setColor(0x0086AE)
+    .setDescription("Voici les commande que le bot peu faire :D")
+    .setFooter("Pour plus d'info demander a son créateur :3")
+    .addField("parler lui :D",
+      "Salut <@437179201284603904>\nÇa va <@437179201284603904> ?\nMerci <@437179201284603904>")
+      .addField("commande special",
+      "sigbot!gif (mais qui ne sers a rien)\nsigbot!ASDF Movie (car c'est drole les ASDF Movie '^')")
+      .addField("commande ~~vraiment~~ utile",
+      "sigbot!xp")
+  
+    message.channel.send({embed});
+}
+if(message.content === "mp!help"){ //MME POOF HELP
+
+    const embed = new Discord.RichEmbed()
+    .setTitle("commande pour les gif")
+    .setColor(0x0086AE)
+    .setDescription("voila les gif et image que Madame Pouf posséde")
+    .setThumbnail("https://cdn.discordapp.com/attachments/432275341202030614/435096117504638986/unknown.png")
+    .setFooter("pour plus d'info demander a sig :D")
+    .addField("gif",
+      "Lucas!KC\nLucas!FTW\Lucas!MrPuel\nLucas!MrPuel")
+      .addField("image",
+      "rien") 
+
+    message.channel.send({embed});
+}
+if(message.content === "yuki!help"){ //yuki help
+
+    const embed = new Discord.RichEmbed()
+    .setTitle("commande pour les gif")
+    .setColor(0x0086AE)
+    .setDescription("voila les gif et image que Yuki posséde")
+    .setThumbnail("https://cdn.discordapp.com/attachments/434681503964725248/435083973069373441/ange_manga_n1.jpg")
+    .setFooter("pour plus d'info demander a sig :D")
+    .addField("gif",
+      "rien")
+    .addField("image",
+      "yuki!invocation:Godness")
+
+    message.channel.send({embed});
+}
+if(message.content === "s!help"){ //sig help
+
+    const embed = new Discord.RichEmbed()
+    .setTitle("commande pour les gif")
+    .setColor(0x0086AE)
+    .setDescription("voila les gif et image que sig posséde")
+    .setThumbnail("https://image.gamer.ne.jp/news/2011/20110727/00018cb052ae8768e94585c1314982a7a0cc/o/17.jpg")
+    .setFooter("pour plus d'info va te voir vue que c'est toi qui la crée xD")
+    .addField("gif",
+      "sig!win \nsig!lose\nsig!magic 1\nsig!magic 2\nsig!magic 3\n sig!magic 4")
+      .addField("image",
+      "aucun")
+
+    message.channel.send({embed});
+}
+if(message.content === "Xarrin!help"){ //Xarrin help
+ 
+    const embed = new Discord.RichEmbed()
+    .setTitle("commande pour les gif")
+    .setColor(0x0086AE)
+    .setDescription("voila les gif et image que Xarrin posséde")
+    .setThumbnail("https://cdn.discordapp.com/attachments/434681503964725248/435060807118749700/SF_Byakko.png")
+    .setFooter("pour plus d'info demander a sig :D")
+    .addField("gif",
+      "Xarrin!nickel\nXarrin!voyeur\nXarrin!ham")
+      .addField("image",
+      "Xarrin!Invocation:Byakko\nXarrin!Invocation:Phoenix\nXarrin!invocation:spiritwater\nXarrin!invocation:spiritearth\nXarrin!invocation:spiritwind\nXarrin!invocation:spiritfire")
+
+    message.channel.send({embed});
+}
+if(message.content === "sakamoto!help"){ //sakamoto help
+ 
+    const embed = new Discord.RichEmbed()
+    .setTitle("commande pour les gif")
+    .setColor(0x0086AE)
+    .setDescription("voila les gif et image que Sakamoto-san posséde")
+    .setThumbnail("http://i0.kym-cdn.com/photos/images/newsfeed/000/714/836/f31.gif")
+    .setFooter("pour plus d'info demander a sig :D")
+    .addField("gif",
+      "sakamoto!sleep\nsakamoto!play\nsakamoto!play 2\nsakamoto!play 3\nsakamoto!xD\nsakamoto!srx")
+      .addField("image",
+      "aucun")
+
+    message.channel.send({embed});
+}
+if (message.content.startsWith("sigbot!dit")){
+    if("234368202379886593".includes(message.author.id)){
     let args = message.content.split(" ").slice(1)
     let thingToEcho = args.join(" ")
-    var embed = new Discord.RichEmbed()
-    .setDescription(`**${message.author.username}** Demande votre attention !`)
-    .addField("[Important, Annonce]", thingToEcho)
-    .setColor(0xD4FE00)
-    .setFooter("si vous avez un problème... index.js ne répond pas")
-    message.channel.send(embed)
-    .then(function (message) {
-        message.react("✔") 
-    })
+    message.channel.send(`${thingToEcho}`)
 }else{
-    return message.reply("Une Erreur à été détécté !")
+    message.channel.send(`il y a un probleme`,{
+        file:"http://1.bp.blogspot.com/-45wb-emSlEM/TggFAb-44hI/AAAAAAAAAhg/DaXtkwQg6O8/s1600/freak+out.jpg"
+    })} 
 }
-}
-
-
 }
 )
+
 function random(min, max) {
-    min = Math.ceil(1)
-    max = Math.floor(3)
-    randnum = Math.floor(Math.random() * (max - min +1) + min);
+   min = Math.ceil(0)// 0 est impossible a avoir
+   max = Math.floor(3)
+   randnum = Math.floor(Math.random() * (max - min +1) + min);
+}
+function random(min, max) {
+    min = Math.ceil(0)// 0 est impossible a avoir
+    max = Math.floor(10)
+    ASDF = Math.floor(Math.random() * (max - min +1) + min);
  }
