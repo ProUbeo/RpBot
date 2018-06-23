@@ -27,11 +27,11 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
 
     if(message.content == "rp!guess-number start"){
         message.reply("partie lancé")
-        party_launch = true;
+        battle_ennemy = true;
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
         console.log(number_random);
     }
-    if(party_launch && message.content !=null){
+    if(battle_ennemy && message.content !=null){
         if(Number.isInteger(parseInt(message.content))){
             if(message.content > number_random){
                 message.reply("plus petit")
