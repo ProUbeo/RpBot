@@ -26,7 +26,7 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
  bot.on('message', message => {
 
     if(message.content == "rp!battle start"){
-        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver la bonne somme de pv !/nrp!battle stop si vous voulez partir du combat")
+        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver la bonne somme de pv !*\nrp!battle stop si vous voulez partir du combat")
         battle_ennemy = true;
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
         console.log(number_random);
