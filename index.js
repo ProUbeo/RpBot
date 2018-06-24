@@ -227,16 +227,16 @@ if (message.content.startsWith("rp!annonce")){
     .then(function (message) {
         message.react("✔") 
     })
-}
-}
-else{
+}else{
     return message.reply("Une Erreur à été détécté !")
 }
+
 if (message.content.startsWith("rp!say")){
     let args = message.content.split(" ").slice(1)
     let thingToEcho = args.join(" ")
     message.delete();
     message.channel.send(`${thingToEcho}`)  
+}
 }
 
 
