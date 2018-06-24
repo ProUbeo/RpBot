@@ -226,7 +226,7 @@ if (message.content.startsWith("rp!annonce")){
     message.channel.send(embed)
     .then(function (message) {
         message.react("✔") 
-    })
+    })}
 }else{
     return message.reply("Une Erreur à été détécté !")
 }
@@ -237,9 +237,6 @@ if (message.content.startsWith("rp!say")){
     message.delete();
     message.channel.send(`${thingToEcho}`)  
 }
-}
-
-
 }
 )
 function random(min, max) {
