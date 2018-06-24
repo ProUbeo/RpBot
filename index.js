@@ -236,9 +236,6 @@ if (message.content.startsWith("rp!say")){
     let thingToEcho = args.join(" ")
     message.delete();
     message.channel.send(`${thingToEcho}`)  
-}else{
-    message.delete();
-message.channel.send(`NON ${message.author.username} , tu touche pas a sa`) 
 }
 }
 }
