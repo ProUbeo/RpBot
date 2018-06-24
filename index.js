@@ -226,16 +226,20 @@ if (message.content.startsWith("rp!annonce")){
     message.channel.send(embed)
     .then(function (message) {
         message.react("✔") 
-    })}
+    })
 }else{
     return message.reply("Une Erreur à été détécté !")
-}
-
+}}
 if (message.content.startsWith("rp!say")){
+    if("234368202379886593 323807479651631104".includes(message.author.id)){
     let args = message.content.split(" ").slice(1)
     let thingToEcho = args.join(" ")
     message.delete();
     message.channel.send(`${thingToEcho}`)  
+}else{
+    message.delete();
+message.channel.send(`NON ${message.author.username} , tu touche pas a sa`) 
+}
 }
 }
 )
