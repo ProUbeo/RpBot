@@ -228,6 +228,7 @@ if (message.content.startsWith("rp!annonce")){
         message.react("✔") 
     })
 }
+}
 else{
     return message.reply("Une Erreur à été détécté !")
 }
@@ -236,7 +237,6 @@ if (message.content.startsWith("rp!say")){
     let thingToEcho = args.join(" ")
     message.delete();
     message.channel.send(`${thingToEcho}`)  
-}
 }
 
 
