@@ -227,19 +227,15 @@ if (message.content.startsWith("rp!annonce")){
     .then(function (message) {
         message.react("✔") 
     })
-}else{
+}
+else{
     return message.reply("Une Erreur à été détécté !")
 }
 if (message.content.startsWith("rp!say")){
-    if("234368202379886593 323807479651631104".includes(message.author.id)){
     let args = message.content.split(" ").slice(1)
     let thingToEcho = args.join(" ")
     message.delete();
     message.channel.send(`${thingToEcho}`)  
-}else{
-    message.delete();
-message.channel.send(`NON ${message.author.username} , tu touche pas a sa`) 
-}
 }
 }
 
