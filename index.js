@@ -28,13 +28,13 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
     if(message.content == "rp!battle start"){
         random();
     if (rp_fight == 1){
-        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
+        message.send("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
     }
     if (rp_fight == 2){
-        message.reply("**Vous tombez sur un Mage\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
+        message.send("**Vous tombez sur un Mage\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
     } 
     if (rp_fight == 3){
-        message.reply("**Vous tombez sur une Arraignée\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
+        message.send("**Vous tombez sur une Arraignée\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
     }
     battle_ennemy = true;
     number_random = Math.floor(Math.random() * (5000 - 0) + 0)
@@ -51,17 +51,15 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
             else{
                 random();
                 if (rp_fight_end == 1){
-                message.reply(`WAA ! Vous l'avez tué !`);
-                battle_ennemy = false
+                message.send(`WAA ! Vous l'avez tué !`);
                 }
                 if (rp_fight_end == 2){
                  message.send(`${message.author} a terminer le combat avec un coup bien placer`);
-                 battle_ennemy = false
                 }
                 if (rp_fight_end == 3){
-                    message.send(`${message.author} : 1 | ennemie : 0 `);
-                    battle_ennemy = false
+                    message.send(`${message.author} : 1 | ennemie : 0 `);  
                 }
+                battle_ennemy = false
             }
         }
     }
