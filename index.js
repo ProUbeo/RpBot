@@ -26,7 +26,14 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
  bot.on('message', message => {
 
     if(message.content == "rp!battle start"){
-        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez")
+    if (rp_fight == 1){
+        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez*")
+    }
+    if (rp_fight == 2){
+        message.reply("**Vous tombez sur un Mage\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez*")
+    } if (rp_fight == 3){
+        message.reply("**Vous tombez sur une Arraignée\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez*")
+    }
         battle_ennemy = true;
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
         console.log(number_random);
@@ -40,7 +47,15 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
                 message.reply("Ses pv sont plus haut !")
             }
             else{
+                if (rp_fight == 1){
                 message.reply(`WAA ! Vous l'avez tué !`);
+                }
+                if (rp_fight == 2){
+                 message.send(`${message.author} a terminer le combat avec un coup bien placer`);
+                }
+                if (rp_fight == 3){
+                    message.send(`${message.author} : 1 | ennemie : 0 `);
+                }
                 battle_ennemy = false
             }
         }
@@ -245,3 +260,9 @@ function random(min, max) {
     max = Math.floor(3)
     randnum = Math.floor(Math.random() * (max - min +1) + min);
  }
+ function random(min, max) {
+    min = Math.ceil(0)
+    max = Math.floor(3)
+    rp_fight = Math.floor(Math.random() * (max - min +1) + min);
+ }
+ 
