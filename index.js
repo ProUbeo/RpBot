@@ -55,15 +55,15 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
             }
             else{
                 random();
-                if (rp_fight == 1){
+                if (rp_fight_end == 1){
                 message.reply(`WAA ! Vous l'avez tué !`);
                 battle_ennemy = false
                 }
-                if (rp_fight == 2){
+                if (rp_fight_end == 2){
                  message.send(`${message.author} a terminer le combat avec un coup bien placer`);
                  battle_ennemy = false
                 }
-                if (rp_fight == 3){
+                if (rp_fight_end == 3){
                     message.send(`${message.author} : 1 | ennemie : 0 `);
                     battle_ennemy = false
                 }
@@ -274,5 +274,10 @@ function random(min, max) {
     min = Math.ceil(0)
     max = Math.floor(3)
     rp_fight = Math.floor(Math.random() * (max - min +1) + min);
+ }
+ function random(min, max) {
+    min = Math.ceil(0)
+    max = Math.floor(3)
+    rp_fight_end = Math.floor(Math.random() * (max - min +1) + min);
  }
  
