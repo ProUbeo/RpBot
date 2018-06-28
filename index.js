@@ -27,18 +27,25 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
 
     if(message.content == "rp!battle start"){
         random();
-    if (rp_fight == 1){
+    if (fight == 1){
         message.send("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
+        battle_ennemy = true;
+        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
+        console.log(number_random);
     }
-    if (rp_fight == 2){
+    if (fight == 2){
         message.send("**Vous tombez sur un Mage\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
+        battle_ennemy = true;
+        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
+        console.log(number_random);
     } 
-    if (rp_fight == 3){
+    if (fight == 3){
         message.send("**Vous tombez sur une Arraignée\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
+        battle_ennemy = true;
+        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
+        console.log(number_random);
     }
-    battle_ennemy = true;
-    number_random = Math.floor(Math.random() * (5000 - 0) + 0)
-    console.log(number_random);
+   
     }
     if(battle_ennemy && message.content !=null){
         if(Number.isInteger(parseInt(message.content))){
@@ -50,16 +57,19 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
             }
             else{
                 random();
-                if (rp_fight_end == 1){
+                if (fight2 == 1){
                 message.send(`WAA ! Vous l'avez tué !`);
+                battle_ennemy = false;
                 }
-                if (rp_fight_end == 2){
+                if (fight2 == 2){
                  message.send(`${message.author} a terminer le combat avec un coup bien placer`);
+                 battle_ennemy = false;
                 }
-                if (rp_fight_end == 3){
+                if (fight2 == 3){
                     message.send(`${message.author} : 1 | ennemie : 0 `);  
+                    battle_ennemy = false;
                 }
-                battle_ennemy = false
+            
             }
         }
     }
@@ -266,11 +276,11 @@ function random(min, max) {
  function random(min, max) {
     min = Math.ceil(0)
     max = Math.floor(3)
-    rp_fight = Math.floor(Math.random() * (max - min +1) + min);
+    fight = Math.floor(Math.random() * (max - min +1) + min);
  }
  function random(min, max) {
     min = Math.ceil(0)
     max = Math.floor(3)
-    rp_fight_end = Math.floor(Math.random() * (max - min +1) + min);
+    fight2 = Math.floor(Math.random() * (max - min +1) + min);
  }
  
