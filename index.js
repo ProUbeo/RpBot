@@ -26,6 +26,7 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
  bot.on('message', message => {
 
     if(message.content == "rp!battle start"){
+        random();
     if (rp_fight == 1){
         message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez*")
         battle_ennemy = true;
@@ -43,8 +44,6 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
         console.log(number_random);
     }
-
-
     }
     if(battle_ennemy && message.content !=null){
         if(Number.isInteger(parseInt(message.content))){
@@ -55,6 +54,7 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
                 message.reply("Ses pv sont plus haut !")
             }
             else{
+                random();
                 if (rp_fight == 1){
                 message.reply(`WAA ! Vous l'avez tué !`);
                 battle_ennemy = false
