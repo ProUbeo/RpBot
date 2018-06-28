@@ -28,22 +28,17 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
     if(message.content == "rp!battle start"){
         random();
     if (rp_fight == 1){
-        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez*")
-        battle_ennemy = true;
-        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
-        console.log(number_random);
+        message.reply("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
     }
     if (rp_fight == 2){
-        message.reply("**Vous tombez sur un Mage\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez*")
-        battle_ennemy = true;
-        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
-        console.log(number_random);
-    } if (rp_fight == 3){
-        message.reply("**Vous tombez sur une Arraignée\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez*")
-        battle_ennemy = true;
-        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
-        console.log(number_random);
+        message.reply("**Vous tombez sur un Mage\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
+    } 
+    if (rp_fight == 3){
+        message.reply("**Vous tombez sur une Arraignée\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
     }
+    battle_ennemy = true;
+    number_random = Math.floor(Math.random() * (5000 - 0) + 0)
+    console.log(number_random);
     }
     if(battle_ennemy && message.content !=null){
         if(Number.isInteger(parseInt(message.content))){
