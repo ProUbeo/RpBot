@@ -27,19 +27,19 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
 
     if(message.content == "rp!battle start"){
         random();
-    if (fight == 1){
+    if (test == 1){
         message.send("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
         battle_ennemy = true;
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
         console.log(number_random);
     }
-    if (fight == 2){
+    if (test == 2){
         message.send("**Vous tombez sur un Mage\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
         battle_ennemy = true;
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
         console.log(number_random);
     } 
-    if (fight == 3){
+    if (test == 3){
         message.send("**Vous tombez sur une Arraignée\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
         battle_ennemy = true;
         number_random = Math.floor(Math.random() * (5000 - 0) + 0)
@@ -118,13 +118,13 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
 }
 if (message.content === "Bienvenue"){
     random();
-    if (randnum == 1){
+    if (test == 1){
      message.channel.send(`Bienvenue... ehh... c'est qui qui à rejoin ? Là je suis vraiment perdu...`);
 }
-if (randnum == 2){
+if (test == 2){
     message.channel.send(`Bienvenue... index.js ne répond pas !\nraison : j'ai la flemme de te répondre :3`);
 }
-if (randnum == 3){
+if (test == 3){
     message.channel.send(`Bienvenue je ne sais qui, Bienvenue dans le rp **{server}** ehh... non c'est pas ça... `);
 }}
   if(message.content.startsWith("rp!katana")){
@@ -269,18 +269,7 @@ if (message.content.startsWith("rp!say")){
 }
 )
 function random(min, max) {
-    min = Math.ceil(1)
-    max = Math.floor(3)
-    randnum = Math.floor(Math.random() * (max - min +1) + min);
- }
- function random(min, max) {
     min = Math.ceil(0)
     max = Math.floor(3)
-    fight = Math.floor(Math.random() * (max - min +1) + min);
+    test = Math.floor(Math.random() * (max - min +1) + min);
  }
- function random(min, max) {
-    min = Math.ceil(0)
-    max = Math.floor(3)
-    fight2 = Math.floor(Math.random() * (max - min +1) + min);
- }
- 
