@@ -54,7 +54,7 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
   
       message.channel.send({embed});
  }
- if(message.content.startsWith(prefix + "warn")) {
+ if(message.content.startsWith("rp!warn")) {
 
     if(message.mentions.users.first()){
 
