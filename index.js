@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
  const bot = new Discord.Client();
  
- var prefix = ("RpBot!")
+ var prefix = ("rp!")
  var randnum = 0;
  var battle_ennemy = false;
  
  bot.on('ready', function() {
      bot.user.setUsername("RpBot")
-     bot.user.setPresence({ game: { name: 'Griller des mages con'}, status: 'dnd'}) //en ligne;
+     bot.user.setPresence({ game: { name: 'Aider le RP de Yuki'}, status: 'dnd'}) //en ligne;
      console.log("Connected")
  });
  
@@ -24,49 +24,6 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
  
 
  bot.on('message', message => {
-
-    if(message.content == "rp!battle start"){
-        message.send("**Vous tombez sur un Slime\nPour le frapper, essayez de trouver le nombre de PV de l'ennemie !**\n*tapez un numéro et vous devrez trouver le bon avec les indice*")
-        battle_ennemy = true;
-        number_random = Math.floor(Math.random() * (5000 - 0) + 0)
-        console.log(number_random);
-
-    }
-    if(battle_ennemy && message.content !=null){
-        if(Number.isInteger(parseInt(message.content))){
-            if(message.content > number_random){
-                message.reply("Ses pv sont plus bas !")
-            }
-            else if(message.content < number_random){
-                message.reply("Ses pv sont plus haut !")
-            }
-            else{
-                random();
-                if (fight2 == 1){
-                message.send(`WAA ! Vous l'avez tué !`);
-                battle_ennemy = false;
-                }
-                if (fight2 == 2){
-                 message.send(`${message.author} a terminer le combat avec un coup bien placer`);
-                 battle_ennemy = false;
-                }
-                if (fight2 == 3){
-                    message.send(`${message.author} : 1 | ennemie : 0 `);  
-                    battle_ennemy = false;
-                }
-            
-            }
-        }
-    }
-    if(message.content == "rp!battle stop"){
-        if(battle_ennemy == true){
-            message.reply("**run away**")
-            battle_ennemy = false;
-    }else{
-        message.reply("Vous n'avez pas trouvé de monstre !")
-    }
-    }
-
      if(message.content === "rp!help"){
  
          const embed = new Discord.RichEmbed()
@@ -93,25 +50,28 @@ member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la 
       .setDescription("Liste")
       .setFooter("si vous avez un problème... index.js ne répond pas")
            .addField("```...```",
-                     "```03/06/2018 9:15\nMessage du développeur :\nBonjour a tous ! Aujourd'hui j'espère pouvoir commencer mon projet secret mais il faudra beaucoup de temps !```")
+                     "```j'améliore... mais j'ai pas trop d'idée X)```")
   
       message.channel.send({embed});
  }
- if(message.content.startsWith("rp!call")){
-    message.channel.send(`**${message.author.username}**, vous appelez <@323807479651631104> avec succes !`,{
-})
+ if(message.content.startsWith(prefix + "warn")) {
+
+    if(message.mentions.users.first()){
+
+    let messageToSend = message.content.split(" ").slice(2).join(" ");
+    let userToSend = message.mentions.users.first();
+
+    userToSend.send(`Tu as reçu un avertissement de ${message.author.username}!\nraison : ${messageToSend}`);
+    message.delete();
+    message.channel.send(`un Warn de ${message.author.username} à été envoyé à ${message.mentions.users.first().username}`)
+}else{
+message.delete();
+message.channel.send(`Une erreur sauvage apparaît`)
+
 }
-if (message.content === "Bienvenue"){
-    random();
-    if (test == 1){
-     message.channel.send(`Bienvenue... ehh... c'est qui qui à rejoin ? Là je suis vraiment perdu...`);
 }
-if (test == 2){
-    message.channel.send(`Bienvenue... index.js ne répond pas !\nraison : j'ai la flemme de te répondre :3`);
-}
-if (test == 3){
-    message.channel.send(`Bienvenue je ne sais qui, Bienvenue dans le rp **{server}** ehh... non c'est pas ça... `);
-}}
+
+
   if(message.content.startsWith("rp!katana")){
     message.channel.send(`**${message.author.username}** fait apparaître son Katana !`,{
     file:"https://orig00.deviantart.net/8300/f/2007/171/b/e/katana_by_vyrosia.jpg"
