@@ -15,7 +15,7 @@ const Discord = require('discord.js');
  
  bot.on("guildMemberAdd", member => {
     
-member.guild.channels.find("name", "entrer").send(`${member}, je te souhaite la bienvenue ! Je t'offre le pouvoir du rp (et pour l'utiliser... ah ! Tu connais pas ! Fait donc "rp!help" :3`)
+member.guild.channels.find("name", "entrer-hrp").send(`${member}, je te souhaite la bienvenue ! Je t'offre le pouvoir du rp (et pour l'utiliser... ah ! Tu connais pas ! Fait donc "rp!help" :3`)
     })
     bot.on("guildMemberRemove", member => {
     member.guild.channels.find("name", "entrer").send(`${member} n'a plus le pouvoir du RP`)
